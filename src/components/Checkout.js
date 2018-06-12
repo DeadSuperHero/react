@@ -28,11 +28,25 @@ handleSubmit(event) {
 }
 
 // ERRORS
+
 notAFunctionError() {
     var obj = {
         validFunction: function () {}
     };
     obj.invalidFunction();
+}
+
+fakeCheckout() {
+  Raven.captureBreadcrumb({
+    message: 'Attempting Checkout',
+    category: 'action',
+    data: {
+      lineItem: '70504934',
+      itemDescription: '1 Year Subscription',
+      recurring: 'false'
+    }
+  });
+  this.notAFunctionError();
 }
 
 showError(color) {
@@ -50,7 +64,7 @@ showError(color) {
             <h1>Checkout Cart</h1>
             <div>
                 <ul className="center list-group " onClick={this.showError.bind(this, 'red')}>
-                    <div className="btn btn-success" onClick={this.notAFunctionError}>
+                    <div className="btn btn-success" onClick={this.fakeCheckout}>
                       <b>Checkout</b>
                     </div>
                 </ul>

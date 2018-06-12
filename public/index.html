@@ -29,7 +29,8 @@
   <script src="https://cdn.ravenjs.com/3.22.1/raven.min.js" crossorigin="anonymous"></script>
   <script>
     Raven.config('https://b034e27c5358497db94c4883aeaa0204@sentry.io/1224971', {
-      release: "%REACT_APP_RELEASE%"
+      release: "%REACT_APP_RELEASE%",
+      environment: "production"
     }).install();
   </script>
 
