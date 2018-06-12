@@ -8,7 +8,8 @@ class Errors extends Component {
 
   componentDidMount() {
     Raven.setTagsContext({
-        feature: "frontend"
+        feature: "frontend",
+        environment: "production"
     });
   }
 
@@ -34,7 +35,7 @@ class Errors extends Component {
         var obj = {
             validFunction: function () {}
         };
-        obj.invalidFunction();
+        obj.validFunction();
     }
 
     uriError() {
