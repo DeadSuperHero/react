@@ -33,7 +33,7 @@ notAFunctionError() {
     var obj = {
         validFunction: function () {}
     };
-    obj.invalidFunction();
+    obj.validFunction();
 }
 
 fakeCheckout() {
